@@ -1,0 +1,203 @@
+.main-flex-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 3vh;
+  padding-left: 10vh;
+}
+
+.main-flex-div > div {
+  flex: 1 0 33.33%;
+  box-sizing: border-box;
+}
+.food-image img{
+
+  max-height: 50vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin: 3px 0;
+}
+
+
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  
+}
+
+p {
+  line-height: 1.6;
+}
+
+h1 {
+  text-align: center;
+}
+
+.underline {
+  width: 50px;
+  height: 5px;
+  background-color: #000;
+}
+
+.button {
+  padding-top:2vh;
+  text-align: center;
+  display: flex;
+  gap: 2vh;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.meals {
+  padding: 20px;
+}
+
+.meals article {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 0 20px;
+}
+
+.meals article .underline {
+  margin: 10px 0;
+}
+
+.meals article h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.meals article img {
+  border-radius: 5px;
+}
+
+.meals article h3 {
+  margin-top: 30px;
+}
+
+.loader-container {
+  width: 95%;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  
+  z-index: 1;
+}
+
+.spinner {
+  width: 64px;
+  height: 64px;
+  border: 8px solid;
+  border-color: #3d5af1 transparent #3d5af1 transparent;
+  border-radius: 50%;
+  animation: spin-anim 1.2s linear infinite;
+}
+
+@keyframes spin-anim {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+/* CSS */
+.button-28 {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  max-width: 20rem;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+.button-28:disabled {
+  pointer-events: none;
+}
+
+.button-28:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.button-28:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+.food-container {
+  display: flex;
+}
+
+.food-image {
+  max-width: 400px;
+  flex: 1;
+}
+
+.food-ing {
+  flex: 1;
+}
+
+@media (max-width: 767px) {
+  .main-flex-div > div {
+    flex-basis: 100%;
+    justify-content: center;
+    /* height: 100vh; */
+    padding: 2vh;
+  }
+  .main-flex-div {
+    padding-left: 0vh;
+  }
+  .food-container {
+    flex-direction: column;
+  }
+  .loader-container {
+    width: 90%;
+    height: 70vh;
+  }
+  .button{
+    flex-direction: column;
+  }
+}
