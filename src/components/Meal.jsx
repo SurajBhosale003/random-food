@@ -1,13 +1,41 @@
 import { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
+import YouTube from 'react-youtube';
 function Meal() {
   const navigate = useNavigate();
   const url = 'https://www.themealdb.com/api/json/v1/1/random.php';
   const [food, setFood] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [showContent, setShowContent] = useState(false);
-
+  
+  const [opts, setOpts] = useState(getOpts());
+  
+  function getOpts() {
+    if (window.innerWidth > 767) {
+      return {
+        height: '300',
+        width: '700',
+      };
+    } else {
+      return {
+        height: '200',
+        width: '300',
+      };
+    }
+  }
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setOpts(getOpts());
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   const fetchFood = async () => {
     try {
       setIsLoading(true);
@@ -16,6 +44,7 @@ function Meal() {
       setFood(data.meals);
       setIsLoading(false);
       setShowContent(true);
+      
     } catch (error) {
       console.error('Error fetching food:', error);
       setIsLoading(false);
@@ -37,6 +66,11 @@ function Meal() {
   useEffect(() => {
     fetchFood();
   }, []);
+  const getVideoIdFromUrl = (url) => {
+    const regex = /(?:\?v=|\/embed\/|\.be\/|\/v\/|\/\d{2,}\/|\/embed\/|\.be\/|\/v\/|\/\d{2,}\/|\/embed\/|\.be\/|\/v\/|\/\d{2,}\/|youtu\.be\/|embed\/|watch\?v=|\/videos\/|\/user\/\S+|[^-_/a-zA-Z0-9]+?)([a-zA-Z0-9_-]{11})(?:\?|&|\/|$|\#)/;
+    const match = url.match(regex);
+    return match && match[1];
+  };
 
   return (
     <>
@@ -68,8 +102,9 @@ function Meal() {
               strMealThumb,
               strSource,
               strTags,
+              strYoutube,
             } = f;
-
+              
             return (
               <article key={idMeal}>
                 <div>
@@ -116,6 +151,9 @@ function Meal() {
                   </a>
                   <div className="my-5">
                     <small>Category: {strTags ? strTags : 'N/A'}</small>
+                    <br/>
+                    <small>Youtube: {strYoutube ? 
+                    <center><YouTube videoId={getVideoIdFromUrl(strYoutube)} opts={opts} /></center> : 'N/A'}</small>
                   </div>
                 </div>
               </article>

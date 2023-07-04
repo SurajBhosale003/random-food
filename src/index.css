@@ -184,8 +184,19 @@ h1 {
 .food-ing {
   flex: 1;
 }
-
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio for the video */
+  height: 0;
+  overflow: hidden;
+  width: 60%;
+}
 @media (max-width: 767px) {
+
+  .video-container{
+    padding-bottom: 0;
+    height: 500px;
+  }
   .main-flex-div > div {
     flex-basis: 100%;
     justify-content: center;
