@@ -7,6 +7,8 @@ import { useState, useEffect } from 'react';
 import breakfast from '../assets/breakfast.jpg';
 import meal from '../assets/meal.jpg';
 import snacks from '../assets/snacks.jpg';
+import logo from '../assets/logo.png';
+
 import { useNavigate } from "react-router-dom";
 function Homepage() {
   const navigate = useNavigate();
@@ -28,7 +30,10 @@ function Homepage() {
   return (
     <>
     <div>
-      <center><h1>Random Food Genrator</h1></center>
+      {/* <center><h1>Random Food Genrator</h1></center> */}
+      <div className='logo'>
+      <center><img src={logo} alt="Logo" /></center>
+      </div>
     </div>
       <div className='main-flex-div'>
         {/* Meal */}
@@ -38,7 +43,7 @@ function Homepage() {
       <CardActionArea>
         <CardMedia
           component="img"
-          height= {isMobile ? "210" : "400"}
+          height= {isMobile ? "210" : "350"}
           image={meal}
           alt="green iguana"
         />
@@ -47,8 +52,7 @@ function Homepage() {
           Meal
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            <i>{`"Indulge in Culinary Delights: Explore Our Exquisite Meal Selection" `}</i>
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -61,7 +65,7 @@ function Homepage() {
       <CardActionArea>
         <CardMedia
           component="img"
-          height= {isMobile ? "210" : "400"} 
+          height= {isMobile ? "210" : "350"} 
           image={breakfast}
           alt="Breakfast"
         />
@@ -70,8 +74,7 @@ function Homepage() {
             Breakfast
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          <i>{`"Rise and Shine with Our Irresistible Breakfast Delights!" `}</i>
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -84,7 +87,7 @@ function Homepage() {
       <CardActionArea>
         <CardMedia
           component="img"
-          height= {isMobile ? "210" : "400"}
+          height= {isMobile ? "210" : "350"}
           image={snacks}
           alt="green iguana"
         />
@@ -93,8 +96,7 @@ function Homepage() {
           Snacks
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          <i>{`"Indulge in Delicious Bites: Discover Our Tempting Snack Selection!" `}</i>
           </Typography>
         </CardContent>
       </CardActionArea>

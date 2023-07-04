@@ -5,8 +5,13 @@
   flex-wrap: wrap;
   padding-top: 3vh;
   padding-left: 10vh;
+  margin-bottom: 20vh;
 }
+.logo img{
 
+  max-width: 300px;
+  max-height: 300px;
+}
 .main-flex-div > div {
   flex: 1 0 33.33%;
   box-sizing: border-box;
@@ -199,5 +204,10 @@ h1 {
   }
   .button{
     flex-direction: column;
+  }
+  .logo img{
+
+    max-width: 250px;
+    max-height: 250px;
   }
 }
